@@ -30,7 +30,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { AddShopDialogComponent } from './shared/add-shop-dialog/add-shop-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ShopComponent } from './services/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { ShopComponent } from './services/shop/shop.component';
     TextareaComponent,
     HomeComponent,
     AddShopDialogComponent,
-    ShopComponent,
   ],
   imports: [
     BrowserAnimationsModule,
