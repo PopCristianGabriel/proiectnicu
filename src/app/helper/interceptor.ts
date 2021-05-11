@@ -13,6 +13,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    debugger;
     if (this.loginService.getCurrentUser() != null) {
       request = request.clone({
         setHeaders: {

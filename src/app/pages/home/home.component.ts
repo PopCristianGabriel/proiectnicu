@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   deleteShop(data: any): void {
+    debugger;
     this.shopService.deleteShop(data.id).subscribe(() => {
         this.getShops();
       }

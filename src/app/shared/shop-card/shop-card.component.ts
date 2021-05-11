@@ -23,6 +23,7 @@ export class ShopCardComponent implements OnInit {
   }
 
   emitDelete() {
-    this.clicked.emit({id: this.id, name: this.name});
+    debugger;
+    this.clickDelete.emit({id: this.id, name: this.name});
   }
 }

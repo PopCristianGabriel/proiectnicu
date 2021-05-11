@@ -25,6 +25,6 @@ export class ShopService {
   }
 
   deleteShop(id: number): any{
-    return this.http.delete(`${this.url}/${id}`);
+    return this.http.post(`${this.url}/${id}`,1);
   }
 }
