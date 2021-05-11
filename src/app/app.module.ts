@@ -33,6 +33,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ShopCardComponent } from './shared/shop-card/shop-card.component';
 import { MatCardModule } from '@angular/material/card';
 import {TokenInterceptor} from "./helper/interceptor";
+import { ShopDetailsComponent } from './pages/shop-details/shop-details.component';
+import { AddProductDialogComponent } from './shared/add-product-dialog/add-product-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import {TokenInterceptor} from "./helper/interceptor";
     HomeComponent,
     AddShopDialogComponent,
     ShopCardComponent,
+    ShopDetailsComponent,
+    AddProductDialogComponent,
   ],
   imports: [
     MatCardModule,

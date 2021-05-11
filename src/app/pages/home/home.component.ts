@@ -4,6 +4,7 @@ import { AddShopDialogComponent } from '../../shared/add-shop-dialog/add-shop-di
 import { ShopService } from '../../services/shop.service';
 import { LoginService } from '../../services/login.service';
 import { ShopDao } from '../../models/daos/ShopDao';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   shops: ShopDao[];
 
-  constructor(public dialog: MatDialog, private shopService: ShopService, private loginService: LoginService) {
+  constructor(public dialog: MatDialog, private shopService: ShopService, private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -37,10 +38,13 @@ export class HomeComponent implements OnInit {
   }
 
   deleteShop(data: any): void {
-    debugger;
     this.shopService.deleteShop(data.id).subscribe(() => {
         this.getShops();
       }
     );
+  }
+
+  goToDetails(data: any): void {
+    this.router.navigate(['/details'], {queryParams: {shopId: data.id}});
   }
 }
