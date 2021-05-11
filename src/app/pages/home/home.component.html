@@ -1,1 +1,3 @@
 <app-mini-fab (clicked)="openDialogBox()"></app-mini-fab>
+<app-shop-card [name]="'test doar'"></app-shop-card>
+<app-shop-card *ngFor="let shop of shops" [id]="shop.id" [name]="shop.name"></app-shop-card>

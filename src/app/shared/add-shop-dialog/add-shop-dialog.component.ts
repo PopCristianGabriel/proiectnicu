@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-shop-dialog',
@@ -11,7 +12,7 @@ export class AddShopDialogComponent implements OnInit {
   nameFormControl: FormControl;
   @Output() emitAddShop = new EventEmitter<any>();
 
-  constructor() {
+  constructor(private dialogRef: MatDialogRef<AddShopDialogComponent>) {
   }
 
   ngOnInit(): void {
@@ -19,6 +20,6 @@ export class AddShopDialogComponent implements OnInit {
   }
 
   addShop(): void {
-    this.emitAddShop.emit(this.nameFormControl.value);
+    this.dialogRef.close(this.nameFormControl.value);
   }
 }

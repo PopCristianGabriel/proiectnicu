@@ -30,6 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { AddShopDialogComponent } from './shared/add-shop-dialog/add-shop-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ShopCardComponent } from './shared/shop-card/shop-card.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -46,8 +48,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     TextareaComponent,
     HomeComponent,
     AddShopDialogComponent,
+    ShopCardComponent,
   ],
   imports: [
+    MatCardModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CommonModule,

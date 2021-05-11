@@ -19,4 +19,8 @@ export class ShopService {
   addShop(id: number, name: string): any{
     return this.http.post(this.url, new ShopDto({userId: id, name}));
   }
+
+  getShops(id: number): any{
+    return this.http.get(`${this.url}/${id}`);
+  }
 }

@@ -1,0 +1,17 @@
+:host{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  height: 90%;
+  width: 100%;
+  flex-wrap: wrap;
+
+
+  ::ng-deep{
+    app-mini-fab{
+      position:absolute;
+      bottom:100px;
+      right: 100px;
+    }
+  }
+}
