@@ -20,6 +20,8 @@ export class AddShopDialogComponent implements OnInit {
   }
 
   addShop(): void {
-    this.dialogRef.close(this.nameFormControl.value);
+    if(this.nameFormControl.valid) {
+      this.dialogRef.close(this.nameFormControl.value);
+    }
   }
 }
