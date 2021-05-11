@@ -1,60 +1,44 @@
-<ng-container [ngSwitch]="typeInput">
-  <ng-container *ngSwitchCase="'simple'">
-    <ng-container *ngTemplateOutlet="simple"></ng-container>
-  </ng-container>
-  <ng-container *ngSwitchCase="'flat'">
-    <ng-container *ngTemplateOutlet="flat"></ng-container>
-  </ng-container>
-  <ng-container *ngSwitchCase="'large'">
-    <ng-container *ngTemplateOutlet="large"></ng-container>
-  </ng-container>
-</ng-container>
+<ng-container *ngIf="formControl; then formInput; else simpleInput"></ng-container>
 
-<ng-template #simple>
-  <input #nativeElement
-         matInput
-         class="simple"
-         [formControl]="control"
-         [type]="type"
-         [placeholder]="placeholder"
-         [value]="value"
-         (input)="onChange($event)"
-         (blur)="onBlur()"
-         (keydown)="onAnyKeyDown($event)">
-</ng-template>
-
-<ng-template #flat>
-  <mat-form-field
-    class="example-full-width"
-    [color]="color">
-    <mat-label>{{label}}</mat-label>
-    <input #nativeElement
+<ng-template #formInput>
+  <mat-form-field>
+    <mat-icon *ngIf="reactive" class="editIcon">edit</mat-icon>
+    <mat-icon *ngIf="isSearch" matSuffix class="search-icon">search</mat-icon>
+    <mat-icon *ngIf="prefixIcon" matPrefix>{{prefixIcon}}</mat-icon>
+    <input #nativeElem
            matInput
-           class="flat"
+           [name]="id"
            [type]="type"
-           [formControl]="control"
-           [placeholder]="placeholder"
+           [formControl]="formControl"
+           [placeholder]="label"
            (input)="onChange($event)"
            (blur)="onBlur()"
-           (keydown)="onAnyKeyDown($event)">
+           (keypress)="forceKeyPressUpperCase($event)"
+           [readonly]="isReadonly"
+           [required]="required ? '' : null"/>
+
+    <div class="step-arrow-wrapper" *ngIf="type === 'number'">
+      <div (mousedown)="$event.preventDefault()" (click)="stepUp()" class="step-up-arrow"></div>
+      <div (mousedown)="$event.preventDefault()" (click)="stepDown()" class="step-down-arrow"></div>
+    </div>
+    <mat-hint *ngIf="hintMessage">{{hintMessage}}</mat-hint>
   </mat-form-field>
 </ng-template>
 
-<ng-template #large>
-  <mat-form-field
-    class="example-full-width"
-    [color]="color">
-    <mat-label>{{label}}</mat-label>
-    <textarea #nativeElement
-           matInput
-           class="flat"
-           [name]="name"
-           [type]="type"
-           [formControl]="control"
-           [placeholder]="placeholder"
-           (input)="onChange($event)"
-           (blur)="onBlur()" (keydown)="onAnyKeyDown($event)">
-    </textarea>
-  </mat-form-field>
+<ng-template #simpleInput>
+  <input #nativeElem
+         matInput
+         [name]="id"
+         [type]="type"
+         [value]="value"
+         [placeholder]="label"
+         (input)="onChange($event)"
+         (blur)="onBlur()"
+         [readonly]="isReadonly"
+         [required]="required ? '' : null"/>
+  <mat-icon *ngIf="reactive" class="editIcon">edit</mat-icon>
 </ng-template>
-
+<app-form-error-list
+  *ngIf="showErrors"
+  [errorMap]="formControl.errors">
+</app-form-error-list>

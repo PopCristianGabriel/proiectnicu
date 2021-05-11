@@ -28,6 +28,9 @@ import { MiniFabComponent } from './shared/mini-fab/mini-fab.component';
 import { TextareaComponent } from './shared/textarea/textarea.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { AddShopDialogComponent } from './shared/add-shop-dialog/add-shop-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ShopComponent } from './services/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +45,12 @@ import { HomeComponent } from './pages/home/home.component';
     ChipsComponent,
     MiniFabComponent,
     TextareaComponent,
-    HomeComponent
+    HomeComponent,
+    AddShopDialogComponent,
+    ShopComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     HttpClientModule,
     CommonModule,
     BrowserModule,
@@ -67,6 +73,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatChipsModule,
     MatAutocompleteModule,
     AppRoutingModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
