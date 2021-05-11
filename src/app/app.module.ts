@@ -35,6 +35,7 @@ import { MatCardModule } from '@angular/material/card';
 import {TokenInterceptor} from "./helper/interceptor";
 import { ShopDetailsComponent } from './pages/shop-details/shop-details.component';
 import { AddProductDialogComponent } from './shared/add-product-dialog/add-product-dialog.component';
+import { ProductCardComponent } from './shared/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AddProductDialogComponent } from './shared/add-product-dialog/add-produ
     ShopCardComponent,
     ShopDetailsComponent,
     AddProductDialogComponent,
+    ProductCardComponent,
   ],
   imports: [
     MatCardModule,

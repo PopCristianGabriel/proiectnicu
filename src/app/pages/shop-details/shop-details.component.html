@@ -1,5 +1,15 @@
-<app-button [type]="'text'" [label]="'Add Product'" (clicked)="openAddProductModal()"></app-button>
-<div *ngFor="let product of shopDetails?.products">
-  {{product.name}}
-  {{product.quantity}}
+<div class="top-container">
+  <div class="title">{{'kaufland'}}</div>
+  <app-button [type]="'text'" [label]="'Add Product'" (clicked)="openAddProductModal()"></app-button>
+
 </div>
+
+<div class="card-container">
+  <app-product-card *ngFor="let product of shopDetails?.products" [name]="product.name" [id]="product.id"
+                    [quantity]="product.quantity">
+  </app-product-card>
+</div>
+
+
+
+
