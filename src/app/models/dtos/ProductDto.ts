@@ -6,6 +6,6 @@ export class ProductDto{
   constructor(product: any = {}) {
     this.name = product.name;
     this.quantity = product.quantity;
-    this.shopId = this.shopId;
+    this.shopId = product.shopId;
   }
 }

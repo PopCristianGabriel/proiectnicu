@@ -21,8 +21,8 @@ export class ShopDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(data => {
-      this.shopId = data.shopId;
+    this.route.queryParams.subscribe(data => {
+      this.shopId = +data.shopId;
       this.getShopDetails();
     });
   }
@@ -30,7 +30,6 @@ export class ShopDetailsComponent implements OnInit {
   openAddProductModal(): void {
     const dialogRef = this.dialog.open(AddProductDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      debugger;
       this.shopService.addProduct(new ProductDto({name: result.name, quantity: result.quantity, shopId: this.shopId})).subscribe(() => {
         this.getShopDetails();
       });
@@ -40,7 +39,7 @@ export class ShopDetailsComponent implements OnInit {
   private getShopDetails(): void {
     this.shopService.getById(this.shopId).subscribe(shop => {
       debugger;
-      this.shopDetails = shop;
+      this.shopDetails = new ShopDetailsDao({shopName:shop.shopName,products:shop.productDtos});
     });
   }
 }

@@ -30,7 +30,7 @@ export class ShopService {
   }
 
   getById(id: number): any {
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get(`${this.urlProduct}/${id}`);
   }
 
   addProduct(productDto: ProductDto): any {

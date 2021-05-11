@@ -1,5 +1,5 @@
 <app-button [type]="'text'" [label]="'Add Product'" (clicked)="openAddProductModal()"></app-button>
-<div *ngFor="let product of shopDetails.products">
+<div *ngFor="let product of shopDetails?.products">
   {{product.name}}
   {{product.quantity}}
 </div>

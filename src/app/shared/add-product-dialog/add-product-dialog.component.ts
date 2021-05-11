@@ -16,7 +16,7 @@ export class AddProductDialogComponent implements OnInit {
   ngOnInit(): void {
     this.productFormGroup = new FormGroup({
       name: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required)
+      quantity: new FormControl('', Validators.required)
     });
   }
 
