@@ -24,7 +24,8 @@ export const environment = {
 
 export const urls = {
   loginUrl :  'http://localhost:8080/api/loginWithGoogle',
-  shopUrl : 'http://localhost:8080/api/shops'
+  shopUrl : 'http://localhost:8080/api/shops',
+  productUrl: 'http://localhost:8080/api/products'
 };
 
 /*
