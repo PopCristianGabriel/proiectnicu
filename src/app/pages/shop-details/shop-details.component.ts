@@ -30,23 +30,25 @@ export class ShopDetailsComponent implements OnInit {
   openAddProductModal(): void {
     const dialogRef = this.dialog.open(AddProductDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.shopService.addProduct(new ProductDto({name: result.name, quantity: result.quantity, shopId: this.shopId})).subscribe(() => {
+      this.shopService.addProduct(new ProductDto({name: result.name, quantity: result.quantity, shopId: this.shopId})).subscribe(data => {debugger;
+        console.log(data)
         this.getShopDetails();
       });
     });
   }
 
   deleteProduct(data: any): void {
-    this.shopService.deleteShop(data.id).subscribe();
+    this.shopService.deleteProduct(data.id).subscribe(data=>{this.getShopDetails()});
   }
 
 
   deleteAllProducts(): void {
-    this.shopService.deleteAllProducts(this.shopId).subscribe();
+    this.shopService.deleteAllProducts(this.shopId).subscribe(data=>{this.getShopDetails()});
   }
 
   private getShopDetails(): void {
-    this.shopService.getById(this.shopId).subscribe(shop => {
+
+    this.shopService.getById(this.shopId).subscribe(shop => {debugger;
       this.shopDetails = new ShopDetailsDao({shopName: shop.shopName, products: shop.productDtos});
     });
   }

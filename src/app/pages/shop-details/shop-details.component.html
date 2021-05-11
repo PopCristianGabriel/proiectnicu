@@ -1,6 +1,6 @@
 <div class="top-container">
   <app-button [type]="'text'" [label]="'Delete All Products'" (clicked)="deleteAllProducts()"></app-button>
-  <div class="title">{{'kaufland'}}</div>
+  <div class="title">{{this.shopDetails.shopName}}</div>
   <app-button [type]="'text'" [label]="'Add Product'" (clicked)="openAddProductModal()"></app-button>
 
 </div>

@@ -33,7 +33,7 @@ export class ShopService {
     return this.http.get(`${this.urlProduct}/${id}`);
   }
 
-  addProduct(productDto: ProductDto): any {
+  addProduct(productDto: ProductDto) {
     return this.http.post(`${this.urlProduct}`, productDto);
   }
 
