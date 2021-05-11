@@ -14,24 +14,32 @@ export class HomeComponent implements OnInit {
 
   shops: ShopDao[];
 
-  constructor(public dialog: MatDialog, private shopService: ShopService, private loginService: LoginService) { }
+  constructor(public dialog: MatDialog, private shopService: ShopService, private loginService: LoginService) {
+  }
 
   ngOnInit(): void {
     this.getShops();
   }
 
-  openDialogBox(): void{
+  openDialogBox(): void {
     const dialogRef = this.dialog.open(AddShopDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.shopService.addShop(this.loginService.getCurrentUser().getId(), result).subscribe();
-      this.getShops();
+      this.shopService.addShop(this.loginService.getCurrentUser().getId(), result).subscribe(() => {
+        this.getShops();
+      });
     });
   }
 
-  getShops(): void{
-    this.shopService.getShops(this.loginService.getCurrentUser().getId()).subscribe(data =>{
+  getShops(): void {
+    this.shopService.getShops(this.loginService.getCurrentUser().getId()).subscribe(data => {
       this.shops = data;
     });
   }
 
+  deleteShop(data: any): void {
+    this.shopService.deleteShop(data.id).subscribe(() => {
+        this.getShops();
+      }
+    );
+  }
 }

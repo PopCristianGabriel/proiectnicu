@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   // {path: 'startup', component: StartupPageComponent, canActivate: [AuthGuard]},
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   // {path: '**', component: PageNotFoundComponent}
 ];

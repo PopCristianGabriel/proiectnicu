@@ -11,6 +11,7 @@ export class ShopCardComponent implements OnInit {
   @Input() id: number;
 
   @Output() clicked = new EventEmitter<any>();
+  @Output() clickDelete  = new EventEmitter<any>();
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class ShopCardComponent implements OnInit {
   }
 
   emitClick(): void {
+    this.clicked.emit({id: this.id, name: this.name});
+  }
+
+  emitDelete() {
     this.clicked.emit({id: this.id, name: this.name});
   }
 }
