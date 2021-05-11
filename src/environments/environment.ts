@@ -23,17 +23,7 @@ export const environment = {
 };
 
 export const urls = {
-  loginUrl :  'https://easy-review-api.tech-challenge.abac.software/api/login',
-  reviewTemplateUrl : 'https://easy-review-api.tech-challenge.abac.software/api/reviews',
-  technologyListUrl : 'https://easy-review-api.tech-challenge.abac.software/api/technologies',
-  saveReviewUrlPart1: 'https://easy-review-api.tech-challenge.abac.software/api/reviews',
-  saveReviewurlPart2: 'categories',
-  typeListUrl : 'https://easy-review-api.tech-challenge.abac.software/api/types',
-  experienceListUrl : 'https://easy-review-api.tech-challenge.abac.software/api/experiences',
-  finishReviewUrl : 'https://easy-review-api.tech-challenge.abac.software/api/reviews',
-  getAllReviewsUrl : 'https://easy-review-api.tech-challenge.abac.software/api/reviews',
-  getOneReviewUrl : 'https://easy-review-api.tech-challenge.abac.software/api/reviews/continueReview',
-  getReviewsPaged: 'https://easy-review-api.tech-challenge.abac.software/api/reviews/paged'
+  loginUrl :  ''
 };
 
 /*
