@@ -1,0 +1,60 @@
+<ng-container [ngSwitch]="typeInput">
+  <ng-container *ngSwitchCase="'simple'">
+    <ng-container *ngTemplateOutlet="simple"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'flat'">
+    <ng-container *ngTemplateOutlet="flat"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'large'">
+    <ng-container *ngTemplateOutlet="large"></ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #simple>
+  <input #nativeElement
+         matInput
+         class="simple"
+         [formControl]="control"
+         [type]="type"
+         [placeholder]="placeholder"
+         [value]="value"
+         (input)="onChange($event)"
+         (blur)="onBlur()"
+         (keydown)="onAnyKeyDown($event)">
+</ng-template>
+
+<ng-template #flat>
+  <mat-form-field
+    class="example-full-width"
+    [color]="color">
+    <mat-label>{{label}}</mat-label>
+    <input #nativeElement
+           matInput
+           class="flat"
+           [type]="type"
+           [formControl]="control"
+           [placeholder]="placeholder"
+           (input)="onChange($event)"
+           (blur)="onBlur()"
+           (keydown)="onAnyKeyDown($event)">
+  </mat-form-field>
+</ng-template>
+
+<ng-template #large>
+  <mat-form-field
+    class="example-full-width"
+    [color]="color">
+    <mat-label>{{label}}</mat-label>
+    <textarea #nativeElement
+           matInput
+           class="flat"
+           [name]="name"
+           [type]="type"
+           [formControl]="control"
+           [placeholder]="placeholder"
+           (input)="onChange($event)"
+           (blur)="onBlur()" (keydown)="onAnyKeyDown($event)">
+    </textarea>
+  </mat-form-field>
+</ng-template>
+

@@ -1,0 +1,18 @@
+:host{
+  .simple{
+    border-radius:6px;
+    border: 1px solid rgb(112, 112, 112);
+    height: 30px;
+    width: 100px;
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+  }
+  &:focus {
+    border: 1px solid rgb(184, 184, 184);
+  }
+  .large{
+    height: 60px;
+  }
+}
