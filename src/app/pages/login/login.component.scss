@@ -26,6 +26,10 @@
     align-items: center;
     height: 30%;
     width: auto;
+
+    span{
+      font-size: xx-large;
+    }
   }
 
   .logo {
@@ -44,6 +48,7 @@
     ::ng-deep{
       app-button{
         button{
+          background-color: #4285F4;
           border-radius: 0;
         }
       }

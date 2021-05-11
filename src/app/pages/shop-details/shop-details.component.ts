@@ -36,10 +36,19 @@ export class ShopDetailsComponent implements OnInit {
     });
   }
 
+  deleteProduct(data: any): void {
+    this.shopService.deleteShop(data.id).subscribe();
+  }
+
+
+  deleteAllProducts(): void {
+    this.shopService.deleteAllProducts(this.shopId).subscribe();
+  }
+
   private getShopDetails(): void {
     this.shopService.getById(this.shopId).subscribe(shop => {
-      debugger;
-      this.shopDetails = new ShopDetailsDao({shopName:shop.shopName,products:shop.productDtos});
+      this.shopDetails = new ShopDetailsDao({shopName: shop.shopName, products: shop.productDtos});
     });
   }
+
 }

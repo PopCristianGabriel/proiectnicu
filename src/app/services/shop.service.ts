@@ -36,4 +36,13 @@ export class ShopService {
   addProduct(productDto: ProductDto): any {
     return this.http.post(`${this.urlProduct}`, productDto);
   }
+
+  deleteProduct(id: number): any {
+    return this.http.post(`${this.urlProduct}/${id}`, 1);
+  }
+
+  deleteAllProducts(id: number): any {
+    return this.http.post(`${this.urlProduct}/all/${id}`, 1);
+
+  }
 }
